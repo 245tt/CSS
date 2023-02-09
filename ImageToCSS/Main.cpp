@@ -1,7 +1,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <string>
-#include <vector>
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -13,7 +12,7 @@ int main()
 	std::string htmlStart = "<!DOCTYPE html>\n<html>\n<head>\n<title>Image</title>\n <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n</head>\n<body>\n <h1>Image.</h1>\n";
 	std::string htmlEnd = "</body>\n</html>";
 	int width, height, nrChannels;
-	unsigned char* image = stbi_load("C:/Users/a/source/repos/ImageToCSS/x64/Debug/image.png",&width,&height,&nrChannels,0);
+	unsigned char* image = stbi_load("../image.png",&width,&height,&nrChannels,0);
 
 	//reserve space to increase speed
 	std::string htmlData;
@@ -51,8 +50,8 @@ int main()
 	}
 	htmlData.append(htmlEnd);
 
-	std::ofstream htmlFile("C:/Users/a/source/repos/ImageToCSS/x64/Debug/index.html");
-	std::ofstream cssFile("C:/Users/a/source/repos/ImageToCSS/x64/Debug/style.css");
+	std::ofstream htmlFile("../index.html");
+	std::ofstream cssFile("../style.css");
 
 	
 	htmlFile << htmlData;
